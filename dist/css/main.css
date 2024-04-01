@@ -194,7 +194,7 @@
 .projects__bio-image {
   height: 28vh;
   width: 100%;
-  background: linear-gradient(to right, rgba(39, 39, 39, 0.9), rgba(39, 39, 39, 0.3)), url(../source/arasaka-3.1.png) center top;
+  background: linear-gradient(to right, rgba(39, 39, 39, 0.9), rgba(39, 39, 39, 0.3)), url(../source/arasaka-4.png) center top;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -202,25 +202,64 @@
   justify-content: flex-end;
 }
 .projects__bio-image .text-secondary {
-  margin-bottom: 2rem;
   font-size: 2rem;
   margin-bottom: 2rem;
 }
 .projects__items {
-  width: 60vw;
+  width: 60vh;
   margin: 2rem auto 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 2rem;
 }
-.projects__items__item {
+.projects__item {
   position: relative;
-  border-bottom: 5px solid #A0153E;
+  border-bottom: 5px solid #ff652f;
   overflow: hidden;
   cursor: pointer;
 }
-.projects__items__item img {
+.projects__item img {
   width: 100%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+.projects__item::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #A0153E;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.projects__item:hover::after {
+  top: 0;
+  opacity: 0.2;
+}
+.projects__item:hover .projects__btn {
+  opacity: 1;
+}
+.projects__btns {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  text-align: center;
+}
+.projects__btn {
+  opacity: 0;
+  font-size: 2rem;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+.projects__btn:hover {
+  color: #ff652f;
 }
 .projects .social-icons {
   display: flex;
