@@ -9,7 +9,7 @@
                 rgba($primary-color, 0.9),
                 rgba($primary-color, 0.3),
             ),
-            url(../source/arasaka-4.png) center top;
+            url(../source/arasaka-3.png) center top;
         background-size: cover;
         // background-position: center center;
         display: flex;
@@ -26,7 +26,7 @@
     }
 
     &__items {
-        width: 60vh;
+        width: 40vh;
         margin: 2rem auto 0 auto;
         display: grid;
         grid-template-columns: 1fr;
@@ -42,6 +42,8 @@
         img {
             width: 100%;
             object-fit: scale-down;
+            border-radius: 5px;
+
         }
 
         &::after {
@@ -64,14 +66,15 @@
                 top: 0;
                 opacity: 0.2;
             }
-            .projects__btn{
+
+            .projects__btn {
                 opacity: 1;
             }
         }
 
     }
 
-    &__btns{
+    &__btns {
         position: absolute;
         top: 0;
         height: 100%;
@@ -84,24 +87,23 @@
 
     }
 
-    &__btn{
+    &__btn {
         opacity: 0;
         // color: set-text-color($secondary-color);
         font-size: 2rem;
-        color:set-text-color(set-text-color($secondary-color));//Si envolvemos una vez el text-color es blanco pero si lo envolvemos dentro de otro text-color es negro
+        color: set-text-color(set-text-color($secondary-color)); //Si envolvemos una vez el text-color es blanco pero si lo envolvemos dentro de otro text-color es negro
         @include transition-ease;
 
-        &:hover{
-            color:$secondary-color; //Si envolvemos una vez el text-color es blanco pero si lo envolvemos dentro de otro text-color es negro
+        &:hover {
+            color: $fourth-color; //Si envolvemos una vez el text-color es blanco pero si lo envolvemos dentro de otro text-color es negro
             //color:set-text-color($third-color); 
         }
     }
 
-
-
     .social-icons {
         display: flex;
         flex-direction: column;
+        margin-left: -10px;
     }
 
     footer {

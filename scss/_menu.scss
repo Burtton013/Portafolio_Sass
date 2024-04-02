@@ -28,26 +28,26 @@
 
         }
 
-       &::after{
-        content: '';
-        position: absolute;
-        top: 8px;
-        width: 20px;
-        height: 3px;
-        background: set-text-color($primary-color);
-        @include transition-ease;
-       }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            width: 20px;
+            height: 3px;
+            background: set-text-color($primary-color);
+            @include transition-ease;
+        }
 
-        &.open{
+        &.open {
             transform: rotate(360deg);
             background: transparent;
-            
-            &::before{
-                transform: rotate(45deg) translate(5px,8px);
-                
+
+            &::before {
+                transform: rotate(45deg) translate(5px, 8px);
+
             }
 
-            &::after{
+            &::after {
                 width: 28px;
                 transform: rotate(-45deg) translate(3px, -7px);
             }
@@ -55,7 +55,7 @@
     }
 }
 
-.nav{
+.nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -63,11 +63,12 @@
     opacity: 0.98;
     visibility: hidden;
 
-    &.open{
+    &.open {
         visibility: visible;
 
     }
-    .menu-nav{
+
+    .menu-nav {
         display: flex;
         flex-flow: column wrap;
         align-items: center;
@@ -76,28 +77,29 @@
         overflow: hidden;
         background: $primary-color;
         list-style-type: none;
-        padding-right:1rem ;
+        padding-right: 1rem;
         transform: translateY(-100%); //Nota: Flex-box divide la pantalla en coordenadas 'x(horizontal)' y 'y(vertical)'
         @include transition-ease;
 
-        &.open{
-            transform: translateY(0) ;
+        &.open {
+            transform: translateY(0);
         }
 
-        &__item{
+        &__item {
             transform: translateX(100vw); //Despliegue lateral derecha de los links del menu. 
             // transform: translateY(-100vw); DESPLIEGUE HORIZONTAL TOP-BOTTOM de los links del menu.
             @include transition-ease;
 
-            &.open{
+            &.open {
                 transform: translateX(0);
             }
 
-            &.active > a{
-                 color: $third_color;
-             }
+            &.active>a {
+                color: $third_color;
+            }
         }
-        &__link{
+
+        &__link {
             display: inline-block;
             font-size: 2rem;
             text-transform: uppercase;
@@ -105,20 +107,22 @@
             font-weight: 300;
             @include transition-ease;
 
-            &:hover{
+            &:hover {
                 color: $third-color;
             }
         }
     }
 }
+
 //NOTA: Lo siguiente es un ciclo 'for' que nos permite generar estilos de css para cada elemento. En este caso para el elemento con clase '.menu-nav__item'.
 // 1: @for : 'for' establece un bucle en el cual hace una iteracion cada 'x' cantidadde veces que establezcamos
 // 2: $i: Esta es el nombre de la variable y tomara el valor actual del ciclo
 // 3: from 1 through 4: Numero de las iteraciones establecidas por el programador en este caso desde 1 hasta 4.
-@for $i from 1 through 4{
-//4: .menu-nav__item:nth-child : Selecciona los elementos con clase 'menu-nav__item' y se le agrega ':nth-child' que selecciona el enesimo hijo del elemento de acuerdo a su posicion, en este caso 1
-//5: (#{$i}): Se agrega '#{}' de lo contrario marca un error. Se agrega '$i' dentro '#{}' donde '$i' es nuestra variable y el 'nth-child()'
-    .menu-nav__item:nth-child(#{$i}){
-        transition-delay:($i * 0.1s) + 0.15s;
+@for $i from 1 through 4 {
+
+    //4: .menu-nav__item:nth-child : Selecciona los elementos con clase 'menu-nav__item' y se le agrega ':nth-child' que selecciona el enesimo hijo del elemento de acuerdo a su posicion, en este caso 1
+    //5: (#{$i}): Se agrega '#{}' de lo contrario marca un error. Se agrega '$i' dentro '#{}' donde '$i' es nuestra variable y el 'nth-child()'
+    .menu-nav__item:nth-child(#{$i}) {
+        transition-delay: ($i * 0.1s) + 0.15s;
     }
 }
